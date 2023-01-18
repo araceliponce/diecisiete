@@ -1,0 +1,51 @@
+<!-- <app-tabla [datos_recibidos]="productos"></app-tabla> -->
+<app-tabla></app-tabla>
+
+
+<ul>
+  <li *ngFor="let item of data_de_productos">
+    <pre>{{item|json}}</pre>
+    <fieldset disabled>
+      <form class="bg-light p-3">
+
+        <div class="form-group">
+          <label for="codigo">Código</label>
+          <input class="form-control" name="codigo" id="codigo" type="text" value={{item.Codigo}}>
+        </div>
+
+
+        <label for="descripcion">Descripción:</label>
+        <input class="form-control" name="descripcion" id="descripcion" type="text" value={{item.Descripcion}}>
+        <hr>
+        <label for="precio_compra">Precio de compra:</label>
+        <input class="form-control" name="precio_compra" id="precio_compra" type="text" value={{item.Precio_Compra}}>
+        <hr>
+        <label for="precio_venta">Precio de venta:</label>
+        <input class="form-control" name="precio_venta" id="precio_venta" type="text" value={{item.Precio_Venta}}>
+        <hr>
+        <label for="precio_compra">Precio de compra:</label>
+        <input class="form-control" name="precio_compra" id="precio_compra" type="text" value={{item.Precio_Compra}}>
+        <hr>
+        <p>Ganancia: {{item.Precio_Venta-item.Precio_Compra}}</p>
+        <label for="existencia">Existencia:</label>
+        <input class="form-control" name="existencia" id="existencia" type="text" value={{item.Existencia}}>
+        <hr>
+
+
+      </form>
+    </fieldset>
+  </li>
+</ul>
+
+<section class="d-none">
+  <p>hi</p>
+  <pre>{{data_de_productos}}</pre>
+  <pre>{{productos |json}}</pre>
+  <!-- <span #elCodigo []>{{cat}}</span> -->
+  <!-- <p>{{elCodigo}}</p> -->
+
+  <!-- <p [(ngModel)]="cat" name="cat">{{cat}}</p> -->
+  <!-- cat  existe en edit.ts -->
+
+  <!-- <p>{{datos_recibidos[1]['Descripcion']}}</p> -->
+</section>

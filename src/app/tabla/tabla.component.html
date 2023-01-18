@@ -1,0 +1,47 @@
+<p>tabla works!</p>
+<button (click)="newData()">abcd</button>
+<pre>{{data_de_productos|json}}</pre>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nro</th>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Precio de compra</th>
+      <th>Precio de venta</th>
+      <th>Ganancia</th>
+      <th>Existencia</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let objeto of data_de_productos, let i = index">
+
+      <td>{{i+1}}</td>
+      <td>{{objeto.Codigo}}</td>
+      <td>{{objeto.Descripcion}}</td>
+      <td>{{objeto.Precio_Compra}}</td>
+      <td>{{objeto.Precio_Venta}}</td>
+      <td>{{objeto.Precio_Venta - objeto.Precio_Compra }}</td>
+      <td>{{objeto.Existencia}}</td>
+      <td>
+        <a class="btn btn-danger" routerLink="/productos/{{i+1}}/edit" (click)="GetNumber(i+1)">EDITAR</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="fs-2" *ngIf="numeroDeProducto>0">editando producto {{numeroDeProducto}}</p>
+
+<!-- utiliza routerlink para el envío de parámetros por link de navegación y paramMap para obtener el valor del parámetro y mostrar los valores del producto según el código de producto. -->
+<!-- aqui debajo debe mostrarse producto nro:x
+codigo (de barras):
+2
+
+descripcion:
+.......
+
+precio de venta (y asi, todos son inputs)-->
+
+<!-- <app-edit [datos_recibidos]="productos"></app-edit> -->
